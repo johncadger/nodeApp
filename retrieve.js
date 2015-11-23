@@ -34,7 +34,7 @@ http.createServer(function(request, response) {
             //Lets iterate on the result
             results.each(function (err, result) {
                 if (err) {
-                    response.write(err);
+                    response.write("a");
                 } else {
                     response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
                 }
