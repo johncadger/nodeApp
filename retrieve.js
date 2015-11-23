@@ -1,9 +1,6 @@
 /**
  * Created by 1204848 on 23/11/2015.
  */
-
-    response.write('a');
-
 //lets require/import the mongodb native drivers.
 var mongodb = require('mongodb');
 //and our HTTP server
@@ -31,29 +28,12 @@ http.createServer(function(request, response) {
             //HURRAY!! We are connected. :)
             response.write('Connection established to' + url +"\n");
 
-            // Get the documents collection
-            var collection = db.collection('users');
+            // do some work here with the database.
 
-            //We have a cursor now with our find criteria
-            var results = collection.find({name: 'modulus user'});
-
-            //Lets iterate on the result
-            results.each(function (err, result) {
-                if (err) {
-                    response.write(err);
-                } else {
-                    response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
-                }
-                //if the result is null, there are no more results, it’s ok to close everything
-                if (result == null) {
-                    response.end('Completed');
-                    db.close();
-                }
-            });
-
-
+            //Done Close connection
+            db.close();
         }
-
+        response.end('Finished, Connection closed \n');
     });
 
 }).listen(port);
