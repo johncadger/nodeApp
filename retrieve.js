@@ -34,7 +34,7 @@ http.createServer(function(request, response) {
             //Lets iterate on the result
             results.each(function (err, result) {
                 if (err) {
-                    response.write("a");
+                    response.write(er);
                 } else {
                     response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
                 }
@@ -51,7 +51,6 @@ http.createServer(function(request, response) {
             // do some work here with the database.
 
         }
-        response.end('Finished, Connection closed \n');
     });
 
 }).listen(port);
