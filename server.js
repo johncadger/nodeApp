@@ -15,6 +15,7 @@ var server = http.createServer(function(request, response) {
     response.write("<h1>");
     response.write("Hello World!");
     response.write("</h1>");
+    response.write("Hello World!");
     response.write("</body>");
     response.write("</html>");
     response.end();
