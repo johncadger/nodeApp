@@ -54,7 +54,6 @@ http.createServer(function(request, response) {
             // do some work here with the database.
 
         }
-        response.end('Finished, Connection closed \n');
     });
 
 }).listen(port);
