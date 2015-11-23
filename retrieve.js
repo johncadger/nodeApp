@@ -44,14 +44,15 @@ http.createServer(function(request, response) {
                 //if the result is null, there are no more results, it’s ok to close everything
                 if (result == null) {
                     response.end('Completed');
-
+                    db.close();
                 }
             });
 
 
-            db.close();
+
 
             // do some work here with the database.
+            db.close();
 
         }
     });
