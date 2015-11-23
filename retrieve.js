@@ -40,6 +40,12 @@ http.createServer(function(request, response) {
                     response.write('Fetched: ' + result.name + " : " + result.age + " : " + result.roles.toString() +'\n');
                 }
 
+                //if the result is null, there are no more results, it’s ok to close everything
+                if (result == null) {
+                    response.end('Completed');
+                    db.close();
+                }
+
             });
 
 
