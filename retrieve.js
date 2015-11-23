@@ -1,6 +1,9 @@
 /**
  * Created by 1204848 on 23/11/2015.
  */
+
+    response.write('a');
+
 //lets require/import the mongodb native drivers.
 var mongodb = require('mongodb');
 //and our HTTP server
