@@ -5,7 +5,7 @@ var Twitter = require('twitter');
 var http = require('http');
 var port = process.env.PORT || 1337;
 var url = require('url');
-var queryData = url.parse(request.url, true).query
+var queryData = url.parse(request.url, true).query;
 var search = queryData.q;
 
 
