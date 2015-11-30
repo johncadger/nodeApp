@@ -19,7 +19,7 @@ var client = new Twitter({
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
 
-    client.get('search/tweets', {q: search}, function(error, tweets){
+    client.get('search/tweets', {q: 'search'}, function(error, tweets){
         var json = [];
         for (var i =0; i< tweets.statuses.length ; i++)
         {
