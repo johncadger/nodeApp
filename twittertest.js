@@ -2,15 +2,6 @@
  * Created by 1204848 on 30/11/2015.
  */
 var Twitter = require('twitter');
-
-var client = new Twitter({
-    consumer_key: 'grQQB7YTdeoBt3vSEYdwfB2d5',
-    consumer_secret: 'Q0e5NSmQv3hoCUNZdRZpUusVXOq6DrkOdtowizLJbo100Rbca1',
-    access_token_key: '265741013-dXzLzyPfhAg9JDsCZ0AtAlX2f8LNj2Apsr5MPAOm',
-    access_token_secret: '6qb96nVKAMClQ9S6SCHeIc0qtsmZqdd3e5SUUfRW2wkkU'
-});
-
-var Twitter = require('twitter');
 var http = require('http');
 var port = process.env.PORT || 1337;
 
@@ -25,8 +16,13 @@ http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
 
     client.get('search/tweets', {q: 'lolcats'}, function(error, tweets){
-        response.end(JSON.stringify(tweets));
-    });
+        var json = [];
+        for (var i =0; i< tweets.statuses.length ; i++)
+        {
+            json.push({name: tweets.statuses[i].user.name, text: tweets.statuses[i].text});
+        }
+        response.end(JSON.stringify(json));
+        });
 }).listen(port);
 
 
