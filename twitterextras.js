@@ -4,10 +4,6 @@
 var Twitter = require('twitter');
 var http = require('http');
 var port = process.env.PORT || 1337;
-//var url = require('url');
-//var queryData = url.parse(request.url, true).query;
-//var search = queryData.q;
-
 
 var client = new Twitter({
     consumer_key: 'uXl8060AfB6TtVZOjUPbPqiuU',
@@ -16,10 +12,14 @@ var client = new Twitter({
     access_token_secret: 'efrJVLugBwFeAVnWSx1Cx6Z8N8IJlSB3js7XjW4KUYiuc'
 });
 
+var url = require('url');
+var queryData = url.parse(request.url, true).query;
+var search = queryData.q;
+
 http.createServer(function(request, response) {
     response.writeHead(200, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
 
-    client.get('search/tweets', {q: 'search'}, function(error, tweets){
+    client.get('search/tweets', {q: search}, function(error, tweets){
         var json = [];
         for (var i =0; i< tweets.statuses.length ; i++)
         {
