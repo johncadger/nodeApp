@@ -6,7 +6,7 @@ var http = require('http');
 var port = process.env.PORT || 1337;
 var url = require('url');
 var queryData = url.parse(request.url, true).query
-var search = querydata.q;
+var search = queryData.q;
 
 
 var client = new Twitter({
